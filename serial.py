@@ -3,6 +3,7 @@ import time
 import cv2
 import random
 import numpy as np
+from tqdm import tqdm
 from tensorflow.keras.models import load_model
 
 # ==========================
@@ -85,12 +86,10 @@ if __name__ == "__main__":
 
     resultados = []
 
-    for i, img in enumerate(imagens, start=1):
-
-        print(f"Processando {i}/{total}: {os.path.basename(img)}")
+    for img in tqdm(imagens, desc="Processando imagens", unit="img"):
 
         resultado = analisar_imagem(model, img)
-        
+
         if resultado is not None:
             resultados.append(resultado)
 
@@ -118,7 +117,6 @@ for r in exemplos:
 # ==========================
 # ESTATÍSTICAS
 # ==========================
-
 acertos = sum(r["correto"] for r in resultados)
 erros = total - acertos
 taxa = (acertos / total) * 100 if total > 0 else 0
