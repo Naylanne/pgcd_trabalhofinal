@@ -12,7 +12,35 @@
 
 ## 1. Descrição do Problema
 
-Foi desenvolvido um programa para realizar a identificação de imagens de rostos, classificando-as como reais ou falsas, utilizando um modelo de aprendizado de máquina treinado com TensorFlow/Keras. O objetivo principal do experimento foi aplicar paralelismo no processamento de imagens, reduzindo o tempo total de execução em comparação com a versão serial.
+Foi desenvolvido um programa para realizar a identificação de imagens de rostos, classificando-as como reais ou falsas, utilizando um modelo de aprendizado de máquina treinado com TensorFlow/Keras. Os resultados demonstraram que o modelo apresentou um bom desempenho na tarefa de classificação, atingindo uma taxa de acerto de 93,77%. Isso indica que na maioria dos casos ele conseguiu classificar corretamente as imagens como reais ou falsas. 
+
+Ex:
+
+================= RESULTADOS POR IMAGEM - AMOSTRA ALEATÓRIA =================
+
+|Imagem                          | Esperada   | Predição        | Resultado
+|--------------------------------|------------|-----------------|------------
+|real\68245.jpg                  | REAL       | FAKE (0.45)     | ❌ Errou
+|fake\DX6YLW9BOY.jpg             | FAKE       | FAKE (0.05)     | ✅ Correto
+|fake\1IPCLGLR8R.jpg             | FAKE       | FAKE (0.14)     | ✅ Correto
+|fake\EUR626P8EY.jpg             | FAKE       | FAKE (0.04)     | ✅ Correto
+|real\06120.jpg                  | REAL       | REAL (1.00)     | ✅ Correto
+|fake\OWP3Y2ASGK.jpg             | FAKE       | REAL (0.68)     | ❌ Errou
+|fake\P8YQEVL0TN.jpg             | FAKE       | FAKE (0.02)     | ✅ Correto
+|fake\LYZH5XIB4U.jpg             | FAKE       | FAKE (0.08)     | ✅ Correto
+|real\18773.jpg                  | REAL       | FAKE (0.37)     | ❌ Errou
+|fake\Y1U6AH0X4T.jpg             | FAKE       | FAKE (0.12)     | ✅ Correto
+
+Total de imagens encontradas: 20000
+Total de imagens avaliadas: 20000
+Total de imagens processadas: 20000
+Imagens com erro de leitura: 0
+Acertos: 18753
+Erros: 1247
+Taxa de acerto: 93.77%
+
+
+O objetivo principal do experimento foi aplicar paralelismo no processamento de imagens, reduzindo o tempo total de execução em comparação com a versão serial.
 
 O problema consiste em processar uma grande quantidade de imagens, realizar o pré-processamento de cada uma delas e, em seguida, executar a inferência no modelo treinado. Cada imagem passa por etapas como leitura do arquivo, conversão de cores, redimensionamento para o tamanho esperado pelo modelo e predição da classe correspondente.
 
