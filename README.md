@@ -1,4 +1,4 @@
-# Relatório do Projeto Final - 2º bimestre
+# Relatório do Projeto Final - 2º bimestre (01/2026)
 
 # Identificador de fotos de rosto fake paralelo
 
@@ -16,6 +16,8 @@ Foi desenvolvido um programa para realizar a identificação de imagens de rosto
 
 Ex:
 
+===== RESULTADOS POR IMAGEM - AMOSTRA ALEATÓRIA =====
+
 |Imagem                          | Esperada   | Predição        | Resultado
 |--------------------------------|------------|-----------------|------------
 |real\68245.jpg                  | REAL       | FAKE (0.45)     | ❌ Errou
@@ -29,6 +31,8 @@ Ex:
 |real\18773.jpg                  | REAL       | FAKE (0.37)     | ❌ Errou
 |fake\Y1U6AH0X4T.jpg             | FAKE       | FAKE (0.12)     | ✅ Correto
 
+===== ESTATÍSTICAS DOS DADOS =====
+
 Total de imagens encontradas: 20000<br>
 Total de imagens avaliadas: 20000<br>
 Total de imagens processadas: 20000<br>
@@ -38,6 +42,8 @@ Erros: 1247<br>
 Taxa de acerto: 93.77%<br>
 
 Porém o processamento do grande volume de imagens faz com que o tempo de processamento seja bastante elevado na forma sequencial, já que o código precisa realizar o pré-processamento de cada uma delas e, em seguida, executar a inferência no modelo treinado. Cada imagem passa por etapas como leitura do arquivo, conversão de cores, redimensionamento para o tamanho esperado pelo modelo e predição da classe correspondente.
+
+---
 
 ## 2. Objetivo
 
@@ -145,6 +151,8 @@ Para apresentar em porcentagem:
 
 Eficiência (%) = (Speedup(p) / p) × 100
 
+---
+
 ## 7. Tabela de Resultados
 
 
@@ -246,7 +254,7 @@ De forma geral, o experimento demonstrou na prática os benefícios e limitaçõ
 
 ---
 
-## 13. Etapas do projeto:<br>
+## 13. Etapas do projeto:
 
 . Definição do tema: Indentificador de fotos de rosto fake paralelo<br>
 . Objetivo: paralelizar um identificador de imagens de rostos reais ou fakes, a fim de agilizar esse processo.<br>
@@ -264,7 +272,7 @@ De forma geral, o experimento demonstrou na prática os benefícios e limitaçõ
 
 ---
 
-## 14. Como Executar:<br>
+## 14. Como Executar:
 
 1. Iniciar ambiente virtual: .venv\Scripts\Activate.ps1<br>
 2. Instalar as dependências do projeto: pip install -r requirements.txt<br>
