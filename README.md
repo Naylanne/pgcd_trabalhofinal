@@ -165,7 +165,7 @@ Apesar do ganho de tempo em todas as versões paralelas em comparação com a ve
 Gráfico mostrando o **tempo de execução em função do número de processos**.
 
 
-![Gráfico Tempo Execução](img/tempo_execucao.png)
+![Gráfico Tempo Execução](graficos/tempo_execucao.png)
 
 
 A tendência esperada é uma curva decrescente, mostrando que o tempo total diminui com o aumento da quantidade de processos.
@@ -180,7 +180,7 @@ Eixo X: número de processos
 Eixo Y: speedup
 
 
-![Gráfico Speedup](img//speedup.png)
+![Gráfico Speedup](graficos/speedup.png)
 
 
 A comparação entre as duas linhas permite observar o quanto o desempenho real se aproxima ou se distancia do desempenho teórico esperado.
@@ -195,7 +195,7 @@ Eixo X: número de processos
 Eixo Y: eficiência
 
 
-![Gráfico Eficiência](img/eficiencia.png)
+![Gráfico Eficiência](graficos/eficiencia.png)
 
 
 A eficiência apresenta queda conforme o número de processos aumenta, o que indica que o ganho de desempenho não cresce na mesma proporção que a quantidade de processos utilizados.
@@ -248,19 +248,19 @@ De forma geral, o experimento demonstrou na prática os benefícios e limitaçõ
 
 ## 13. Etapas do projeto:<br>
 
-. Tema - Indentificador de fotos de rosto fake paralelo<br>
-. Objetivo - paralelizar um identificador de imagens de rostos reais ou fakes, a fim de agilizar esse processo.<br>
-. Base de dados - https://www.kaggle.com/datasets/troykueh/real-vs-fake-faces-stylegan3<br>
-. Treinamento do modelo - Foi utilizado o código que já consta na base de dados.<br>
-. 1. Primeiro, foi utilizado o código de treinamento já disponibilizado junto à base de dados do Kaggle. Esse treinamento teve como objetivo ensinar o modelo a diferenciar imagens de rostos reais e imagens de rostos fake.<br>
-. 2. Após o treinamento, o modelo foi salvo em um arquivo no formato .keras. Esse arquivo passou a representar o modelo já treinado, pronto para ser utilizado na classificação das imagens.<br>
-. 3. No código do projeto, o modelo salvo foi carregado utilizando o TensorFlow/Keras. Dessa forma, não foi necessário treinar o modelo novamente durante os testes, apenas carregar o arquivo já treinado.<br>
-. 4. Em seguida, o programa percorreu a pasta de imagens de teste, separadas entre imagens reais e imagens fake.<br>
-. 5. Antes de enviar cada imagem para o modelo, foi necessário preparar a imagem. Para isso, a imagem foi lida com OpenCV, convertida para o padrão de cores RGB, redimensionada para o tamanho esperado pelo modelo e transformada para o formato numérico float32.<br>
-. 6. Depois do pré-processamento, a imagem foi enviada ao modelo para que ele realizasse a predição. O modelo retornava um resultado indicando se a imagem era classificada como real ou fake.<br>
-. 7. O resultado previsto pelo modelo foi comparado com a classe real da imagem, de acordo com a pasta em que ela estava armazenada. Assim, foi possível contabilizar os acertos e erros.<br>
-. 8. Primeiro, esse processo foi realizado de forma sequencial, analisando uma imagem por vez. Depois, foi criada uma versão paralela, na qual as imagens foram divididas entre vários processos para tentar reduzir o tempo total de execução.<br>
-.9. Por fim, foram avaliados o tempo de execução, a quantidade de imagens processadas, a taxa de acerto, o speedup e a eficiência da versão paralela em comparação com a versão sequencial.<br>
+. Definição do tema: Indentificador de fotos de rosto fake paralelo<br>
+. Objetivo: paralelizar um identificador de imagens de rostos reais ou fakes, a fim de agilizar esse processo.<br>
+. Base de dados: https://www.kaggle.com/datasets/troykueh/real-vs-fake-faces-stylegan3<br>
+. Treinamento do modelo:<br>
+. Primeiro, foi utilizado o código de treinamento já disponibilizado junto à base de dados do Kaggle. Esse treinamento teve como objetivo ensinar o modelo a diferenciar imagens de rostos reais e imagens de rostos fake.<br>
+. Após o treinamento, o modelo foi salvo em um arquivo no formato .keras. Esse arquivo passou a representar o modelo já treinado, pronto para ser utilizado na classificação das imagens.<br>
+. No código do projeto, o modelo salvo foi carregado utilizando o TensorFlow/Keras. Dessa forma, não foi necessário treinar o modelo novamente durante as execuções, apenas carregar o arquivo já treinado.<br>
+. Em seguida, o programa percorreu a pasta de imagens de teste, separadas entre imagens reais e imagens fake.<br>
+. Antes de enviar cada imagem para o modelo, foi necessário preparar a imagem. Para isso, a imagem foi lida com OpenCV, convertida para o padrão de cores RGB, redimensionada para o tamanho esperado pelo modelo e transformada para o formato numérico float32.<br>
+. Depois do pré-processamento, a imagem foi enviada ao modelo para que ele realizasse a predição. O modelo retornava um resultado indicando se a imagem era classificada como real ou fake.<br>
+. O resultado previsto pelo modelo foi comparado com a classe real da imagem, de acordo com a pasta em que ela estava armazenada. Assim, foi possível contabilizar os acertos e erros.<br>
+. Após o treinamento, implementou-se as execuções de predição, esse processo foi realizado primeiramente de forma sequencial, analisando uma imagem por vez, e posteriormente foi criada uma versão paralela, na qual as imagens foram divididas entre vários processos para tentar reduzir o tempo total de execução.<br>
+. Por fim, foram avaliados os tempos totais das execuções, a quantidade de imagens processadas, a taxa de acerto, o speedup e a eficiência da versão paralela em comparação com a versão sequencial.<br>
 
 ---
 
