@@ -59,19 +59,19 @@ A complexidade do processamento na versão sequencial pode ser considerada aprox
 
 ## 3. Ambiente Experimental
 
-Os testes foram realizados em um computador com processador Intel Core i7 de 12ª geração, sistema operacional Windows 11 e 16 GB de memória RAM. O programa foi implementado em Python, utilizando TensorFlow/Keras para carregamento do modelo de classificação, OpenCV para leitura e pré-processamento das imagens e ProcessPoolExecutor para execução paralela com múltiplos processos.
+Os testes foram realizados em um computador com processador Intel Core i7 de 12ª geração, sistema operacional Windows 11 e 16 GB de memória RAM. O programa foi implementado em Python, utilizando TensorFlow/Keras para carregamento do modelo de classificação, OpenCV para leitura e pré-processamento das imagens, NumPy para ajustar o formato para o modelo e ProcessPoolExecutor, por meio do concurrent.futures, para a execução paralela com múltiplos processos.
 
 | Item                        |      Descrição     |
 | --------------------------- |      ---------     |
 | Processador                 |      i7-12700      |
 | Número de núcleos           |         12         |
 | Memória RAM                 |        16gb        |
-| Sistema Operacional         |      Windows 11    |
-| Linguagem utilizada         |       Python       |
+| Sistema Operacional         |     Windows 11     |
+| Linguagem utilizada         |   Python 3.10.20   |
 | Biblioteca de paralelização | concurrent.futures |
-| Bibliotecas auxiliar        |  TensorFlow/Keras  |
-| Bibliotecas auxiliar        |       OpenCV       |
-| Bibliotecas auxiliar        |        NumPy       |
+| Biblioteca auxiliar         |  TensorFlow/Keras  |
+| Biblioteca auxiliar         |       OpenCV       |
+| Biblioteca auxiliar         |        NumPy       |
 | Compilador / Versão         |   VScode 1.126.0   |
 
 ---
@@ -121,7 +121,7 @@ A tabela a seguir apresenta os tempos de execução obtidos para cada quantidade
 | 12                   |          271          |
 
 
-Observa-se que o tempo de execução diminuiu conforme o número de processos aumentou. A versão serial levou 1480 segundos, enquanto a execução com 12 processos reduziu o tempo para 271 segundos., no entanto, a redução do tempo não ocorreu de forma perfeitamente proporcional ao aumento do número de processos.
+Observa-se que o tempo de execução diminuiu conforme o número de processos aumentou. A versão serial levou 1480 segundos, enquanto a execução com 12 processos reduziu o tempo para 271 segundos.
 
 ---
 
@@ -224,7 +224,7 @@ Com 12 processos, o menor tempo absoluto foi alcançado, com 271 segundos, entre
 
 Dessa forma, é possível observar dois fatores: apesar do menor tempo total ter sido obtido com 12 processos o custo foi muito alto e a eficiência caiu bastante, enquanto que o equilíbrio entre speedup, eficiência e custo-benefício foi obtido com até 4 processos, sendo o melhor resultado prático.
 
-A partir de 8, o programa ainda apresentou redução no tempo total, mas com perda progressiva de eficiência. Isso mostra que o paralelismo trouxe ganhos cada vez menores.
+A partir de 8, o programa ainda apresentou redução no tempo total, mas com perda progressiva de eficiência. Isso mostra que o paralelismo trouxe ganhos cada vez menores a partir disso.
 
 Uma das principais causas para essa queda de eficiência está relacionada ao uso do TensorFlow em conjunto com multiprocessamento, aumentando o consumo de memória RAM e a disputa por recursos da máquina.
 
