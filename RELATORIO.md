@@ -16,8 +16,6 @@ Foi desenvolvido um programa para realizar a identificação de imagens de rosto
 
 Ex:
 
-===== RESULTADOS POR IMAGEM - AMOSTRA ALEATÓRIA =====
-
 |Imagem                          | Esperada   | Predição        | Resultado
 |--------------------------------|------------|-----------------|------------
 |real\68245.jpg                  | REAL       | FAKE (0.45)     | ❌ Errou
@@ -31,13 +29,13 @@ Ex:
 |real\18773.jpg                  | REAL       | FAKE (0.37)     | ❌ Errou
 |fake\Y1U6AH0X4T.jpg             | FAKE       | FAKE (0.12)     | ✅ Correto
 
-Total de imagens encontradas: 20000
-Total de imagens avaliadas: 20000
-Total de imagens processadas: 20000
-Imagens com erro de leitura: 0
-Acertos: 18753
-Erros: 1247
-Taxa de acerto: 93.77%
+Total de imagens encontradas: 20000<br>
+Total de imagens avaliadas: 20000<br>
+Total de imagens processadas: 20000<br>
+Imagens com erro de leitura: 0<br>
+Acertos: 18753<br>
+Erros: 1247<br>
+Taxa de acerto: 93.77%<br>
 
 
 O objetivo principal do experimento foi aplicar paralelismo no processamento de imagens, reduzindo o tempo total de execução em comparação com a versão serial.
