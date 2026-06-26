@@ -172,6 +172,9 @@ Apesar do ganho de tempo em todas as versões paralelas em comparação com a ve
 
 Gráfico mostrando o **tempo de execução em função do número de processos**.
 
+Eixo X: número de processos
+Eixo Y: tempo de execução (segundos)
+
 
 ![Gráfico Tempo Execução](graficos/tempo_execucao.png)
 
