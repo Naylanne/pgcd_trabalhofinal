@@ -16,7 +16,7 @@ Foi desenvolvido um programa para realizar a identificação de imagens de rosto
 
 Ex:
 
-================= RESULTADOS POR IMAGEM - AMOSTRA ALEATÓRIA =================
+===== RESULTADOS POR IMAGEM - AMOSTRA ALEATÓRIA =====
 
 |Imagem                          | Esperada   | Predição        | Resultado
 |--------------------------------|------------|-----------------|------------
